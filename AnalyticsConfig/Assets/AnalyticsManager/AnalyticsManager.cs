@@ -1,10 +1,22 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using GameAnalyticsSDK;
 using System.Globalization;
 
 public class AnalyticsManager : MonoBehaviour
 {
+    #region Configuração do GameAnalyticsSDK
+    /*
+     *  1) Logar no GameAnalytics indo em Window/GameAnalytics/Select Settings
+     *
+     *  2) No Settings, ir em Setup e configurar os aplicativos criados previamente no site do GameAnalytics, para cada plataforma.
+     *
+     *  3)Se não identificar as configurações automaticamnete, inserir a Game Key e Secret Key de forma manual
+     *
+     *  https://gameanalytics.com/docs/item/unity-sdk
+    */
+    #endregion
 
     #region Configuração do FacebookSDK
     /*
@@ -36,6 +48,7 @@ public class AnalyticsManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         FacebookManager.StartSDK();
+        GameAnalytics.Initialize();
     }
 
 }
